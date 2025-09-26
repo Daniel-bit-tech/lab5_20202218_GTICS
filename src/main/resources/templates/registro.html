@@ -33,6 +33,13 @@
     <span th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></span>
     <br/>
 
+<!--  Agregue apellido porque tenia error de que no se podia crear usuario sin apellido, entonces con esto ( sin tener validacion, porque no se especifica en la pregunta) se creara usuario de manera correcta -->  -->
+
+    <label>Apellido:</label>
+    <input type="text" th:field="*{apellido}"/>
+    <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
+    <br/>
+
     <button type="submit">Registrar</button>
 </form>
 

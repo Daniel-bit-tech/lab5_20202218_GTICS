@@ -40,7 +40,7 @@ public class UsuarioController {
         if (result.hasErrors()) {
             return "registro";
         }
-
+        usuarioRepository.save(usuario);
         return "redirect:/inicio";
 
     }
