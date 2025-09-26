@@ -117,7 +117,7 @@ public class MensajeController {
         Usuario usuario = usuarioRepository.findById(usuarioId).orElse(null);
         model.addAttribute("usuario", usuario);
         // AGARRA mensajes_recibidos. html
-        return "mensajes_recibidos";
+        return "Mensajes_recibidos";
     }
 
 }
