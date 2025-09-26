@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Enviar Mensaje</title>
+</head>
+<body>
+<h2>Enviar Mensaje Motivacional</h2>
+<form th:action="@{/mensajes/enviar}" th:object="${mensaje}" method="post">
+
+  Remitente:
+  <select name="remitenteId" required>
+    <option th:each="u : ${usuarios}" th:value="${u.id}" th:text="${u.nombre} + ' ' + ${u.apellido}"></option>
+  </select>
+
+  <label>Destinatario:</label>
+  <select name="destinatarioId">
+    <option th:each="u : ${usuarios}" th:value="${u.id}" th:text="${u.nombre}">
+    </option>
+  </select>
+
+  Tipo:
+  <select th:field="*{regaloTipo}" required>
+    <option value="Flor">Flor</option>
+    <option value="Carrito">Carrito</option>
+  </select>
+  <span th:if="${#fields.hasErrors('regaloTipo')}" th:errors="*{regaloTipo}" ></span>
+
+  Color:
+  <input type="text" th:field="*{regaloColor}"/>
+
+  Contenido:
+  <textarea th:field="*{contenido}" required></textarea>
+  <span th:if="${#fields.hasErrors('contenido')}" th:errors="*{contenido}" ></span>
+
+  <button type="submit">Enviar</button>
+</form>
+
+</body>
+</html>

@@ -16,7 +16,7 @@
 <nav>
   <a th:href="@{/}">Inicio</a>
   <a th:href="@{/registro}">Registro</a>
-  <a th:href="@{/mensajes}">Enviar Mensajes</a>
+  <a th:href="@{/mensajes/nuevo}">Enviar Mensajes</a>
 </nav>
 
 <h1 style="text-align:center;">Usuarios Registrados</h1>
@@ -26,7 +26,7 @@
     <h3 th:text="${usuario.nombre} + ' ' + ${usuario.apellido}"></h3>
     <p><b>Email:</b> <span th:text="${usuario.correo}"></span></p>
     <p th:text="${usuario.descripcion}"></p>
-    <a th:href="@{/mensajes}" class="btn">Enviar Mensaje</a>
+    <a th:href="@{/mensajes/nuevo}" class="btn">Enviar Mensaje</a>
   </div>
 </div>
 
