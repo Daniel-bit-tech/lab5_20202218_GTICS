@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Página Principal</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <style>
+    body { font-family: Arial, sans-serif; }
+    nav a { margin-right: 10px; }
+    .card { border: 1px solid #ccc; padding: 10px; margin: 5px; display: inline-block; width: 200px; }
+    .btn { background: lightblue; padding: 5px; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a th:href="@{/}">Inicio</a>
+  <a th:href="@{/registro}">Registro</a>
+  <a th:href="@{/mensajes}">Enviar Mensajes</a>
+</nav>
+
+<h1 style="text-align:center;">Usuarios Registrados</h1>
+
+<div class="container">
+  <div class="card" th:each="usuario : ${usuarios}">
+    <h3 th:text="${usuario.nombre} + ' ' + ${usuario.apellido}"></h3>
+    <p><b>Email:</b> <span th:text="${usuario.correo}"></span></p>
+    <p th:text="${usuario.descripcion}"></p>
+    <a th:href="@{/mensajes}" class="btn">Enviar Mensaje</a>
+  </div>
+</div>
+
+</body>
+</html>
