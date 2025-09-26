@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+// DECLARAMOS LA ENTIDAD RANKING
 public class Ranking {
     @Id
     private Integer usuarioId;

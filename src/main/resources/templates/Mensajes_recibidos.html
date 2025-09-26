@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mensajes Recibidos</title>
+</head>
+<body>
+<h1>Mensajes Recibidos</h1>
+
+<p th:text="'Total de mensajes: ' + ${cantidadTotal}"></p>
+
+<div th:each="m : ${mensajes}">
+    <p><strong>De:</strong> <span th:text="${m.remitente.nombre} + ' ' + ${m.remitente.apellido}"></span></p>
+    <p><strong>Regalo:</strong> <span th:text="${m.regaloTipo} + ' (' + ${m.regaloColor} + ')'"></span></p>
+    <p><strong>Contenido:</strong> <span th:text="${m.contenido}"></span></p>
+    <hr/>
+</div>
+
+<a th:href="@{/inicio}">Volver al inicio</a>
+</body>
+</html>

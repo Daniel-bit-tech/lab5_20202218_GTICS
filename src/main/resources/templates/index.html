@@ -28,6 +28,8 @@
     <p><b>Email:</b> <span th:text="${usuario.correo}"></span></p>
     <p th:text="${usuario.descripcion}"></p>
     <a th:href="@{/mensajes/nuevo}" class="btn">Enviar Mensaje</a>
+<!--    AGREGO EL BOTON DE VER MMIS MENSAJES -->
+    <a th:href="@{/mensajes/recibidos(id=${usuario.id})}">Ver mis mensajes</a>
   </div>
 </div>
 

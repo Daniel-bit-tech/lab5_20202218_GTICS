@@ -103,4 +103,21 @@ public class MensajeController {
         return "ranking";
     }
 
+    // CONTROLADOR PARA LA VISTA DE MENSAJES RECIBIDOS POR USUARIO
+
+    @GetMapping("/mensajes/recibidos")
+    public String listarMensajesRecibidos(@RequestParam("id") Integer usuarioId, Model model) {
+        // METODO QUE ME DA UNA LISTA CON LOS DESTINARIOID QUE ESTA EN EL MENSAJE REPOSITORY
+        List<Mensaje> mensajes = mensajeRepository.findByDestinatarioId(usuarioId);
+
+        model.addAttribute("mensajes", mensajes);
+        model.addAttribute("cantidadTotal", mensajes.size());
+
+        // OBTENEMOS EL USAURIO DESDE EL USAURIO REPOSITORY O EN CASO NO HAYA SEA NULL
+        Usuario usuario = usuarioRepository.findById(usuarioId).orElse(null);
+        model.addAttribute("usuario", usuario);
+        // AGARRA mensajes_recibidos. html
+        return "mensajes_recibidos";
+    }
+
 }
