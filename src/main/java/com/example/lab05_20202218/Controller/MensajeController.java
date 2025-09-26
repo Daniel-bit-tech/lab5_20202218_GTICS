@@ -2,8 +2,10 @@
 
 package com.example.lab05_20202218.Controller;
 import com.example.lab05_20202218.Entity.Mensaje;
+import com.example.lab05_20202218.Entity.Ranking;
 import com.example.lab05_20202218.Entity.Usuario;
 import com.example.lab05_20202218.Repository.MensajeRepository;
+import com.example.lab05_20202218.Repository.RankingRepository;
 import com.example.lab05_20202218.Repository.UsuarioRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,4 +85,22 @@ public class MensajeController {
         // se redirige a index.html con url /inicio
         return "redirect:/inicio";
     }
+
+
+
+    // implemento el controlador el mensaje controller pq me parecio innecesario crear otro controlador a parte solo par aranking
+    @Autowired
+    // inyecto el repository que tiene el query
+    private RankingRepository rankingRepository;
+
+    // metodo get donde me encuentra lel ranking de users
+    @GetMapping("/ranking")
+    public String ranking(Model model) {
+        // una lista que usa ranking repository que encunetra a los users para el ranking
+        List<Ranking> ranking = rankingRepository.findRankingOfUsers();
+        model.addAttribute("ranking", ranking);
+        // te manda a ranking.html
+        return "ranking";
+    }
+
 }

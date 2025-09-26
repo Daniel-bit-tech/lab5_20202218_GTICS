@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Ranking</title>
+</head>
+<body>
+<h1>Ranking </h1>
+<table>
+  <thead>
+  <tr>
+    <th>Puesto</th>
+    <th>Usuario</th>
+    <th>Total de Regalos</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="r, status : ${ranking}">
+    <td th:text="${status.count}"></td>
+    <td th:text="${r.nombre} + ' ' + ${r.apellido}"></td>
+    <td th:text="${r.totalRegalos}"></td>
+  </tr>
+  </tbody>
+</table>
+<a th:href="@{/inicio}">Volver </a>
+</body>
+</html>
